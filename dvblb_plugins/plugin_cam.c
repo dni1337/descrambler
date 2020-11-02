@@ -14,6 +14,7 @@
 #include "../sc/include/ffdecsawrapper/sclink.h"
 #include "../sc/include/ffdecsawrapper/channels.h"
 #include "../sc/include/ffdecsawrapper/tools.h"
+#include "../sc/include/ca_pid.h"
 #include "../sc/sasccam.h"
 
 #define PLUGIN_ID 28

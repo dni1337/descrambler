@@ -25,6 +25,7 @@
 #include <ffdecsawrapper/thread.h>
 #include "data.h"
 #include "misc.h"
+#include "ca_pid.h"
 
 class cChannel;
 class cRingBufferLinear;

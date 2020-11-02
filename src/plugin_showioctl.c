@@ -245,11 +245,10 @@ static void demux_ioctl(struct parser_cmds *pc, struct poll_ll *fdptr,
                  (struct dmx_sct_filter_params *)data;
           str[0] = 0;
           if(dmx->flags)
-            sprintf(str,"    flags: %s%s%s%s\n",
+            sprintf(str,"    flags: %s%s%s\n",
                    (dmx->flags & DMX_CHECK_CRC ? " CHECK_CRC" : ""),
                    (dmx->flags & DMX_ONESHOT ? " ONESHOT" : ""),
-                   (dmx->flags & DMX_IMMEDIATE_START ? " IMMEDIATE_START" : ""),
-                   (dmx->flags & DMX_KERNEL_CLIENT ? " KERNEL_CLIENT" : ""));
+                   (dmx->flags & DMX_IMMEDIATE_START ? " IMMEDIATE_START" : ""));
           for(int i = 0; i < DMX_FILTER_SIZE; i++) {
             if(dmx->filter.filter[i] == 0)
               break;
@@ -296,11 +295,10 @@ static void demux_ioctl(struct parser_cmds *pc, struct poll_ll *fdptr,
             default: strcpy(t, "Unknown"); break;
           }
           if(dmx->flags)
-            sprintf(str,"    flags: %s%s%s%s\n",
+            sprintf(str,"    flags: %s%s%s\n",
                    (dmx->flags & DMX_CHECK_CRC ? " CHECK_CRC" : ""),
                    (dmx->flags & DMX_ONESHOT ? " ONESHOT" : ""),
-                   (dmx->flags & DMX_IMMEDIATE_START ? " IMMEDIATE_START" : ""),
-                   (dmx->flags & DMX_KERNEL_CLIENT ? " KERNEL_CLIENT" : ""));
+                   (dmx->flags & DMX_IMMEDIATE_START ? " IMMEDIATE_START" : ""));
           tmprintf("","DMX_SET_PES_FILTER(%d): pid:%d in:%s out:%s type:%s\n%s",
                  fdptr->fd, dmx->pid,
                  dmx->input == DMX_IN_FRONTEND ? "FRONTEND" : "DVR",
@@ -323,16 +321,6 @@ static void demux_ioctl(struct parser_cmds *pc, struct poll_ll *fdptr,
           }
           tmprintf("","DMX_GET_PES_PIDS(%d):%s\n", fdptr->fd, str);
         }
-        break;
-      case DMX_GET_CAPS:
-        {
-          struct dmx_caps *dmx = (struct dmx_caps*)data;
-          tmprintf("","DMX_GET_CAPS(%d): %u num:%d\n", fdptr->fd, dmx->caps,
-                 dmx->num_decoders);
-        }
-        break;
-      case DMX_SET_SOURCE:
-        tmprintf("","DMX_SET_SOURCE(%d): %d\n", fdptr->fd, d32);
         break;
       case DMX_GET_STC:
         tmprintf("","DMX_GET_STC(%d)\n", fdptr->fd);

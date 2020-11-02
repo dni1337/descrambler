@@ -39,10 +39,10 @@
 #define DBG_NAME dnames[pc->type]
 #define PLUGIN_ID (2*(pc->type-3))
 
-#define DVB_DEVICE_FRONTEND   3
-#define DVB_DEVICE_DEMUX      4
-#define DVB_DEVICE_DVR        5
-#define DVB_DEVICE_CA         6
+#define DVB_DEVICE_FRONTEND   1
+#define DVB_DEVICE_DEMUX      2
+#define DVB_DEVICE_DVR        3
+#define DVB_DEVICE_CA         4
 
 #define MEMSIZE 100000
 

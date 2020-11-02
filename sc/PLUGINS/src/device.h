@@ -23,6 +23,7 @@
 #include <linux/dvb/ca.h>
 #include <ffdecsawrapper/dvbdevice.h>
 #include <ffdecsawrapper/thread.h>
+#include "ca_pid.h"
 #include "misc.h"
 
 class cDeCSA;
