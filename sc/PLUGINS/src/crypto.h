@@ -106,6 +106,7 @@ public:
 #include "support/idea.h"
 #else
 #define OPENSSL_HAS_IDEA
+typedef unsigned int IDEA_INT;
 #include <openssl/idea.h>
 #endif
 
