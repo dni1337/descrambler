@@ -210,7 +210,8 @@ static void key_schedule_stream(
 
 static void key_schedule_block(
   unsigned char *ck,    // [In]  ck[0]-ck[7]   8 bytes | Key.
-  unsigned char *kk)    // [Out] kk[0]-kk[55] 56 bytes | Key schedule.
+  unsigned char *kk,    // [Out] kk[0]-kk[55] 56 bytes | Key schedule.
+  unsigned char ecm)
 {
   static const unsigned char key_perm[0x40] = {
     0x12,0x24,0x09,0x07,0x2A,0x31,0x1D,0x15, 0x1C,0x36,0x3E,0x32,0x13,0x21,0x3B,0x40,
