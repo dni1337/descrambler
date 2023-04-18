@@ -102,12 +102,12 @@ public:
 
 // ----------------------------------------------------------------
 
-#if defined(OPENSSL_NO_IDEA) | defined(NO_IDEA) | OPENSSL_VERSION_NUMBER<0x0090700fL
+//#if defined(OPENSSL_NO_IDEA) | defined(NO_IDEA) | OPENSSL_VERSION_NUMBER<0x0090700fL
 #include "support/idea.h"
-#else
-#define OPENSSL_HAS_IDEA
-#include <openssl/idea.h>
-#endif
+//#else
+//#define OPENSSL_HAS_IDEA
+//#include <openssl/idea.h>
+//#endif
 
 typedef IDEA_KEY_SCHEDULE IdeaKS;
 
