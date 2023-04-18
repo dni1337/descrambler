@@ -294,22 +294,23 @@ static int process_ts(struct csastruct *csa, unsigned char *buffer, uint end,
            pthread_mutex_unlock(&csa->keylock);
            return ret;
         }
+
         if (csa->keyindex[index].queued == 3)
         {
             csa->keyindex[index].queued = 0;
-            set_even_control_word(csa->keyindex[index].keys, csa->keyindex[index].even);
-            set_odd_control_word(csa->keyindex[index].keys, csa->keyindex[index].odd);
+            set_even_control_word(csa->keyindex[index].keys, csa->keyindex[index].even,0);
+            set_odd_control_word(csa->keyindex[index].keys, csa->keyindex[index].odd,0);
         }
 
         if (csa->keyindex[index].queued & 0x02 && tmp != 0x80)
         {
             csa->keyindex[index].queued &= 0x01;
-            set_even_control_word(csa->keyindex[index].keys, csa->keyindex[index].even);
+            set_even_control_word(csa->keyindex[index].keys, csa->keyindex[index].even,0);
         }
         if (csa->keyindex[index].queued & 0x01 && tmp != 0xC0)
         {
             csa->keyindex[index].queued &= 0x02;
-            set_odd_control_word(csa->keyindex[index].keys, csa->keyindex[index].odd);
+            set_odd_control_word(csa->keyindex[index].keys, csa->keyindex[index].odd,0);
         }
         pthread_mutex_unlock(&csa->keylock);
 
