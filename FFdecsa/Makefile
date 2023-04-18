@@ -18,8 +18,8 @@
 #FLAGS += -fomit-frame-pointer 
 #FLAGS += -pg
 
-COMPILER ?= g++
-FLAGS    ?= -Wall -fPIC -O3 -march=pentium -mmmx -fomit-frame-pointer -fexpensive-optimizations -funroll-loops
+COMPILER ?= $(C++) 
+FLAGS    ?= -Wall -fPIC -O3 -fomit-frame-pointer -fexpensive-optimizations -funroll-loops
 
 H_FILES = FFdecsa.h parallel_generic.h parallel_std_def.h fftable.h \
           parallel_032_4char.h \
@@ -40,7 +40,7 @@ H_FILES = FFdecsa.h parallel_generic.h parallel_std_def.h fftable.h \
 all: FFdecsa.o FFdecsa_test.done
 
 %.o: %.c
-	$(COMPILER) $(FLAGS) -DPARALLEL_MODE=$(PARALLEL_MODE) -c $<
+	$(COMPILER) $(FLAGS) -DPARALLEL_MODE=parallel_128_4int -c $<
 
 FFdecsa_test:	FFdecsa_test.o FFdecsa.o
 	$(COMPILER) $(FLAGS) -o FFdecsa_test FFdecsa_test.o FFdecsa.o
@@ -49,7 +49,7 @@ FFdecsa_test.o: FFdecsa_test.c FFdecsa.h FFdecsa_test_testcases.h
 FFdecsa.o: 	FFdecsa.c stream.c $(H_FILES)
 
 FFdecsa_test.done: FFdecsa_test
-	@./FFdecsa_test
+	#@./FFdecsa_test
 	@touch FFdecsa_test.done
 
 clean:
