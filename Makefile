@@ -15,7 +15,7 @@ SCLIBS = -Wl,-whole-archive ./sc/PLUGINS/lib/libsc-*.a -Wl,-no-whole-archive \
 	./sc/PLUGINS/lib/libffdecsawrapper-sc.a
 
 ifneq ($(RELEASE),1)
-CXXFLAGS += -g
+#CXXFLAGS += -g
 endif
 
 OBJ  := forward.o process_req.o msg_passing.o plugin_getsid.o plugin_ringbuf.o\
@@ -47,7 +47,7 @@ distclean:
 	@git reset --hard HEAD
 
 sc-plugin:
-	$(MAKE) -C $(SCDIR) CXX=$(CXX) CXXFLAGS=$(SC_FLAGS) STATIC=1 all
+	$(MAKE) -C $(SCDIR) STATIC=1 all
 
 FFdecsa/FFdecsa.o:
 	$(MAKE) -C FFdecsa $(FFDECSA_OPTS)
