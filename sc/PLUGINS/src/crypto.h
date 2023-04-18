@@ -105,9 +105,9 @@ public:
 #if defined(OPENSSL_NO_IDEA) | defined(NO_IDEA) | OPENSSL_VERSION_NUMBER<0x0090700fL
 #include "support/idea.h"
 #else
-#define OPENSSL_HAS_IDEA
-typedef unsigned int IDEA_INT;
-#include <openssl/idea.h>
+//#define OPENSSL_HAS_IDEA
+//#include <openssl/idea.h>
+#include "support/idea.h"
 #endif
 
 typedef IDEA_KEY_SCHEDULE IdeaKS;
