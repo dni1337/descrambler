@@ -2848,13 +2848,13 @@ bool cDeCSA::SetDescr(ca_descr_t *ca_descr, bool initial)
     LDUMP(L_CORE_CSA,ca_descr->cw,8,"%s.%d: %4s key set",devId,idx,ca_descr->parity?"odd":"even");
     unsigned char ecm = filter->GetECM(0, ca_descr);
     if(ca_descr->parity==0) {
-      set_even_control_word(keys[idx],ca_descr->cw,ecm);
+      set_even_control_word(keys[idx],ca_descr->cw,4);
       if(!CheckNull(ca_descr->cw,8)) flags[idx]|=FL_EVEN_GOOD|FL_ACTIVITY;
       else PRINTF(L_CORE_CSA,"%s.%d: zero even CW",devId,idx);
       wait.Broadcast();
       }
     else {
-      set_odd_control_word(keys[idx],ca_descr->cw,ecm);
+      set_odd_control_word(keys[idx],ca_descr->cw,4);
       if(!CheckNull(ca_descr->cw,8)) flags[idx]|=FL_ODD_GOOD|FL_ACTIVITY;
       else PRINTF(L_CORE_CSA,"%s.%d: zero odd CW",devId,idx);
       wait.Broadcast();
