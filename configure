@@ -98,7 +98,7 @@ show_help(){
   exit 0
 }
 
-compiletype_opt="release"
+compiletype_opt="debug"
 update_opt="yes"
 optimize_opt="yes"
 ffdecsa_opt="yes"
