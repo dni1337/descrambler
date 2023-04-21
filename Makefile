@@ -4,7 +4,7 @@ include config.mak
 
 CC       ?= gcc
 CXX      ?= g++
-CXXFLAGS ?= -Wall -D__user= 
+CXXFLAGS ?= -g -Wall -D__user= 
 
 DEFINES += -DRELEASE_VERSION=\"$(VERSION)\" -D__KERNEL_STRICT_NAMES
 LBDIR = src
