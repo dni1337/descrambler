@@ -18,7 +18,7 @@
 #FLAGS += -fomit-frame-pointer 
 #FLAGS += -pg
 
-COMPILER ?= g++
+COMPILER ?= $(CXX)
 FLAGS    ?= -Wall -fPIC -O3 -fomit-frame-pointer -fexpensive-optimizations -funroll-loops
 
 H_FILES = FFdecsa.h parallel_generic.h parallel_std_def.h fftable.h \
