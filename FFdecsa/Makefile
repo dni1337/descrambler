@@ -19,7 +19,7 @@
 #FLAGS += -pg
 
 COMPILER ?= g++
-FLAGS    ?= -Wall -fPIC -O3 -fomit-frame-pointer -fexpensive-optimizations -funroll-loops
+FLAGS    = -Wall -fPIC -O3 -fomit-frame-pointer -fexpensive-optimizations -funroll-loops
 
 H_FILES = FFdecsa.h parallel_generic.h parallel_std_def.h fftable.h \
           parallel_032_4char.h \
@@ -40,7 +40,7 @@ H_FILES = FFdecsa.h parallel_generic.h parallel_std_def.h fftable.h \
 all: FFdecsa.o FFdecsa_test.done
 
 %.o: %.c
-	$(COMPILER) $(FLAGS) -DPARALLEL_MODE=PARALLEL_64_MMX -c $<
+	$(COMPILER) $(FLAGS) -DPARALLEL_MODE=PARALLEL_128_4INT -c $<
 
 FFdecsa_test:	FFdecsa_test.o FFdecsa.o
 	$(COMPILER) $(FLAGS) -o FFdecsa_test FFdecsa_test.o FFdecsa.o
