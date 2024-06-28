@@ -50,7 +50,7 @@ sc-plugin:
 	$(MAKE) -C $(SCDIR) CXX=$(CXX) CXXFLAGS=$(CXXFLAGS) STATIC=1 all
 
 FFdecsa/FFdecsa.o:
-	$(MAKE) -C FFdecsa CXX=$(CXX) $(CXXFLAGS))
+	$(MAKE) -C FFdecsa CXX=$(CXX) CXXFLAGS=$(CXXFLAGS)
 
 objs/libsi.a: $(OBJ_LIBSI)
 	ar ru $@ $(OBJ_LIBSI)
