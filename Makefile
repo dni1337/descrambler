@@ -47,10 +47,10 @@ distclean:
 	@git reset --hard HEAD
 
 sc-plugin:
-	$(MAKE) -C $(SCDIR) CXX=$(CXX) CXXFLAGS=$(SC_FLAGS) STATIC=1 all
+	$(MAKE) -C $(SCDIR) CXX=$(CXX) CXXFLAGS=$(CXXFLAGS) STATIC=1 all
 
 FFdecsa/FFdecsa.o:
-	$(MAKE) -C FFdecsa $(FFDECSA_OPTS)
+	$(MAKE) -C FFdecsa CXX=$(CXX) $(CXXFLAGS))
 
 objs/libsi.a: $(OBJ_LIBSI)
 	ar ru $@ $(OBJ_LIBSI)
