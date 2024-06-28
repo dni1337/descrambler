@@ -45,6 +45,41 @@
   #undef _IOC_TYPECHECK
   #define _IOC_TYPECHECK(t) (sizeof(t))
 #endif
+
+
+#define DMX_KERNEL_CLIENT   0x8000
+
+struct dmx_caps {
+	__u32 caps;
+	int num_decoders;
+};
+
+enum dmx_source {
+	DMX_SOURCE_FRONT0 = 0,
+	DMX_SOURCE_FRONT1,
+	DMX_SOURCE_FRONT2,
+	DMX_SOURCE_FRONT3,
+	DMX_SOURCE_DVR0   = 16,
+	DMX_SOURCE_DVR1,
+	DMX_SOURCE_DVR2,
+	DMX_SOURCE_DVR3
+};
+
+#define DMX_GET_CAPS             _IOR('o', 48, struct dmx_caps)
+#define DMX_SET_SOURCE           _IOW('o', 49, enum dmx_source)
+
+typedef struct dmx_caps dmx_caps_t;
+typedef enum dmx_source  dmx_source_t;
+
+struct ca_pid {
+	unsigned int pid;
+	int index;		/* -1 == disable*/
+};
+
+#define CA_SET_PID        _IOW('o', 135, struct ca_pid)
+
+typedef struct ca_pid ca_pid_t;
+
 static void fe_ioctl(struct parser_cmds *pc, struct poll_ll *fdptr,
                     cmdret_t *result, int *ret,
                     unsigned long int cmd, unsigned char *data)
