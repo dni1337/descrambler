@@ -21,7 +21,7 @@
 COMPILER ?= g++
 FLAGS    ?= -Wall -fPIC -O3 -fomit-frame-pointer -fexpensive-optimizations -funroll-loops
 
-export CFLAGS="-mcpu=cortex-a9 -mfloat-abi=hard -mfpu=neon"
+export CFLAGS=""
 
 H_FILES = FFdecsa.h parallel_generic.h parallel_std_def.h fftable.h \
           parallel_032_4char.h \
