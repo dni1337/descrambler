@@ -47,7 +47,7 @@ distclean:
 	@git reset --hard HEAD
 
 sc-plugin:
-	$(MAKE) -C $(SCDIR) CXX=$(CXX) CXXFLAGS=$(CXXFLAGS) STATIC=1 all
+	$(MAKE) -C $(SCDIR) STATIC=1 all
 
 FFdecsa/FFdecsa.o:
 	$(MAKE) -C FFdecsa
